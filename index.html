@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luyalo Concept | Arquitetura, Construção & Remodelações Premium em Portugal</title>
+  
+  <!-- Fontes Google (Inter & Playfair Display para elegância e sofisticação) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              charcoal: '#121316',
+              dark: '#1c1e22',
+              card: '#24272e',
+              gold: '#c5a059',
+              goldLight: '#dfba73',
+              goldDark: '#9e7b39',
+              silver: '#94a3b8',
+              muted: '#64748b'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Cinzel', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos e animações suaves */
+    .glass-nav {
+      background: rgba(18, 19, 22, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #dfba73 0%, #c5a059 50%, #9e7b39 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border-gradient {
+      border-image: linear-gradient(to right, #c5a059, #333) 1;
+    }
+  </style>
+</head>
+<body class="bg-[#0f1013] text-gray-200 font-sans selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden">
+
+  <!-- ==================== BARRA DE NAVEGAÇÃO ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logótipo -->
+        <a href="#inicio" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded border border-brand-gold/60 flex items-center justify-center bg-brand-charcoal text-brand-gold font-display font-bold text-xl group-hover:scale-105 transition-transform duration-300 shadow-md">
+            L
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display tracking-[0.25em] text-lg sm:text-xl font-bold text-white group-hover:text-brand-gold transition-colors">LUYALO</span>
+            <span class="text-[10px] tracking-[0.4em] uppercase text-brand-gold font-light">CONCEPT</span>
+          </div>
+        </a>
+
+        <!-- Links Desktop -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+          <a href="#inicio" class="text-gray-300 hover:text-brand-gold transition-colors">Início</a>
+          <a href="#sobre" class="text-gray-300 hover:text-brand-gold transition-colors">Sobre</a>
+          <a href="#servicos" class="text-gray-300 hover:text-brand-gold transition-colors">Serviços</a>
+          <a href="#projetos" class="text-gray-300 hover:text-brand-gold transition-colors">Portfólio</a>
+          <a href="#contacto" class="text-gray-300 hover:text-brand-gold transition-colors">Contactos</a>
+        </nav>
+
+        <!-- Botão CTA Desktop -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="#orcamento" class="relative inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-black bg-gradient-to-r from-brand-goldLight via-brand-gold to-brand-goldDark rounded hover:brightness-110 shadow-lg shadow-brand-gold/20 transition-all duration-300 transform hover:-translate-y-0.5">
+            Pedir Orçamento
+          </a>
+        </div>
+
+        <!-- Botão Mobile Hambúrguer -->
+        <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-brand-gold focus:outline-none p-2 text-xl" aria-label="Abrir Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 border-b border-brand-gold/20 px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 text-center">
+        <a href="#inicio" class="mobile-nav-link text-gray-200 hover:text-brand-gold py-2 font-medium">Início</a>
+        <a href="#sobre" class="mobile-nav-link text-gray-200 hover:text-brand-gold py-2 font-medium">Sobre Nós</a>
+        <a href="#servicos" class="mobile-nav-link text-gray-200 hover:text-brand-gold py-2 font-medium">Serviços</a>
+        <a href="#projetos" class="mobile-nav-link text-gray-200 hover:text-brand-gold py-2 font-medium">Portfólio</a>
+        <a href="#contacto" class="mobile-nav-link text-gray-200 hover:text-brand-gold py-2 font-medium">Contactos</a>
+        <a href="#orcamento" class="mobile-nav-link mt-2 inline-block px-5 py-3 text-xs uppercase font-bold tracking-wider text-black bg-brand-gold rounded shadow-md">
+          Pedir Orçamento Grátis
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="inicio" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+    <!-- Imagem de Fundo com Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" alt="Arquitetura de Luxo" class="w-full h-full object-cover scale-105 filter brightness-[0.35]">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0f1013] via-[#0f1013]/60 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col items-start justify-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-gold/40 bg-brand-charcoal/70 backdrop-blur-md mb-6 animate-pulse">
+        <span class="w-2 h-2 rounded-full bg-brand-gold"></span>
+        <span class="text-xs uppercase tracking-widest text-brand-gold font-semibold">Arquitetura & Construção de Alto Padrão</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-display font-bold text-white leading-tight max-w-4xl tracking-tight">
+        Concretizamos a visão do seu espaço com <span class="gold-gradient-text">precisão & elegância</span>.
+      </h1>
+
+      <p class="mt-6 text-base sm:text-xl text-gray-300 max-w-2xl font-light leading-relaxed">
+        Especialistas em arquitetura, remodelações de luxo e construção integral em Portugal. Aliamos o rigor técnico ao design de autor com garantia de acabamentos impecáveis.
+      </p>
+
+      <!-- Botões de Ação -->
+      <div class="mt-10 flex flex-wrap gap-4 items-center">
+        <a href="#orcamento" class="px-8 py-4 bg-gradient-to-r from-brand-gold to-brand-goldDark text-black text-sm uppercase tracking-widest font-bold rounded shadow-xl hover:shadow-brand-gold/20 hover:scale-105 transition-all duration-300">
+          Pedir Orçamento Gratuito
+        </a>
+        <a href="https://wa.me/351928231360?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Luyalo%20Concept." target="_blank" rel="noopener noreferrer" class="px-6 py-4 border border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-brand-gold text-white text-sm uppercase tracking-widest font-medium rounded transition-all duration-300 flex items-center gap-2.5">
+          <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
+          Falar no WhatsApp
+        </a>
+      </div>
+
+      <!-- Destaques Rápidos -->
+      <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 border-t border-white/10 pt-8 w-full max-w-4xl">
+        <div>
+          <div class="text-2xl sm:text-3xl font-display font-bold text-brand-gold">100%</div>
+          <div class="text-xs sm:text-sm text-gray-400 mt-1">Chave na Mão</div>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-display font-bold text-brand-gold">3D</div>
+          <div class="text-xs sm:text-sm text-gray-400 mt-1">Visualização Realista</div>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-display font-bold text-brand-gold">Rigor</div>
+          <div class="text-xs sm:text-sm text-gray-400 mt-1">Cumprimento de Prazos</div>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-display font-bold text-brand-gold">Nacional</div>
+          <div class="text-xs sm:text-sm text-gray-400 mt-1">Projetos em Portugal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SOBRE NÓS ==================== -->
+  <section id="sobre" class="py-24 bg-brand-charcoal relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        <!-- Galeria / Imagem Sobre -->
+        <div class="relative">
+          <div class="relative z-10 rounded-xl overflow-hidden border border-brand-gold/20 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="Luyalo Concept Interiores" class="w-full h-[420px] sm:h-[500px] object-cover">
+          </div>
+          <!-- Selo Flutuante -->
+          <div class="absolute -bottom-6 -right-4 sm:bottom-6 sm:-right-6 z-20 bg-brand-dark/95 border border-brand-gold p-5 rounded-lg shadow-2xl backdrop-blur-md max-w-xs">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-gem text-2xl text-brand-gold"></i>
+              <div>
+                <p class="text-sm font-semibold text-white">Padrão Premium</p>
+                <p class="text-xs text-gray-400">Excelência e materiais nobres em cada pormenor.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto Sobre -->
+        <div>
+          <span class="text-xs uppercase tracking-widest text-brand-gold font-bold">Quem Somos</span>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">
+            A paixão por transformar conceitos em espaços atemporais.
+          </h2>
+          
+          <p class="mt-6 text-gray-300 leading-relaxed font-light">
+            A <strong class="text-white font-medium">Luyalo concept</strong> é uma empresa portuguesa dedicada à arquitetura de interiores, construção civil e remodelações integradas. Nascemos com uma missão clara: aliar o talento criativo à mestria construtiva, garantindo intervenções que valorizam o seu património.
+          </p>
+          
+          <p class="mt-4 text-gray-300 leading-relaxed font-light">
+            Sabemos que cada obra é um investimento valioso. Por isso, assumimos todo o processo — desde o estudo prévio e licenciamento até à entrega da chave —, com transparência orçamental, rigor nos prazos e comunicação contínua.
+          </p>
+
+          <div class="mt-8 space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="p-2 rounded bg-brand-gold/10 text-brand-gold mt-1"><i class="fa-solid fa-check"></i></div>
+              <div>
+                <h4 class="text-white font-medium text-sm">Acompanhamento Personalizado</h4>
+                <p class="text-gray-400 text-xs sm:text-sm">Um único gestor dedicado ao seu projeto do primeiro esboço à finalização.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="p-2 rounded bg-brand-gold/10 text-brand-gold mt-1"><i class="fa-solid fa-check"></i></div>
+              <div>
+                <h4 class="text-white font-medium text-sm">Garantia e Segurança Construtiva</h4>
+                <p class="text-gray-400 text-xs sm:text-sm">Trabalhamos com equipas especializadas e materiais certificados com garantia comprovada.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVIÇOS ==================== -->
+  <section id="servicos" class="py-24 bg-[#0d0e11] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-xs uppercase tracking-widest text-brand-gold font-bold">Soluções Completas</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-display font-bold text-white">Nossos Serviços Especializados</h2>
+        <p class="mt-4 text-gray-400 text-sm sm:text-base">
+          Oferecemos soluções integradas para habitações particulares, espaços comerciais e investimentos imobiliários.
+        </p>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Cartão 1 -->
+        <div class="group bg-brand-card p-8 rounded-xl border border-white/5 hover:border-brand-gold/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between shadow-lg">
+          <div>
+            <div class="w-14 h-14 rounded-lg bg-brand-charcoal border border-brand-gold/30 flex items-center justify-center text-brand-gold text-2xl mb-6 group-hover:bg-brand-gold group-hover:text-black transition-colors duration-300">
+              <i class="fa-solid fa-compass-drafting"></i>
+            </div>
+            <h3 class="text-xl font-display font-semibold text-white group-hover:text-brand-gold transition-colors">
+              Arquitetura & Design
+            </h3>
+            <p class="mt-4 text-sm text-gray-400 leading-relaxed font-light">
+              Conceção de projetos arquitetónicos de raiz, design de interiores sofisticado, maquetes e renderizações 3D foto-realistas para visualizar cada pormenor antes do início das obras.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5">
+            <span class="text-xs font-semibold text-brand-gold flex items-center gap-2 group-hover:gap-3 transition-all">
+              Saber mais <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- Cartão 2 -->
+        <div class="group bg-brand-card p-8 rounded-xl border border-white/5 hover:border-brand-gold/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between shadow-lg">
+          <div>
+            <div class="w-14 h-14 rounded-lg bg-brand-charcoal border border-brand-gold/30 flex items-center justify-center text-brand-gold text-2xl mb-6 group-hover:bg-brand-gold group-hover:text-black transition-colors duration-300">
+              <i class="fa-solid fa-paint-roller"></i>
+            </div>
+            <h3 class="text-xl font-display font-semibold text-white group-hover:text-brand-gold transition-colors">
+              Remodelações Premium
+            </h3>
+            <p class="mt-4 text-sm text-gray-400 leading-relaxed font-light">
+              Transformações profundas de moradias e apartamentos: remodelação de cozinhas contemporâneas, casas de banho funcionais, reabilitação térmica e acabamentos de requinte.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5">
+            <span class="text-xs font-semibold text-brand-gold flex items-center gap-2 group-hover:gap-3 transition-all">
+              Saber mais <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- Cartão 3 -->
+        <div class="group bg-brand-card p-8 rounded-xl border border-white/5 hover:border-brand-gold/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between shadow-lg">
+          <div>
+            <div class="w-14 h-14 rounded-lg bg-brand-charcoal border border-brand-gold/30 flex items-center justify-center text-brand-gold text-2xl mb-6 group-hover:bg-brand-gold group-hover:text-black transition-colors duration-300">
+              <i class="fa-solid fa-trowel-bricks"></i>
+            </div>
+            <h3 class="text-xl font-display font-semibold text-white group-hover:text-brand-gold transition-colors">
+              Construção & Gestão
+            </h3>
+            <p class="mt-4 text-sm text-gray-400 leading-relaxed font-light">
+              Supervisão de obra contínua, fiscalização orçamental, cumprimento estrito de prazos e alinhamento de equipas multidisciplinares para garantir total tranquilidade ao proprietário.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5">
+            <span class="text-xs font-semibold text-brand-gold flex items-center gap-2 group-hover:gap-3 transition-all">
+              Saber mais <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- Cartão 4 -->
+        <div class="group bg-brand-card p-8 rounded-xl border border-white/5 hover:border-brand-gold/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between shadow-lg">
+          <div>
+            <div class="w-14 h-14 rounded-lg bg-brand-charcoal border border-brand-gold/30 flex items-center justify-center text-brand-gold text-2xl mb-6 group-hover:bg-brand-gold group-hover:text-black transition-colors duration-300">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <h3 class="text-xl font-display font-semibold text-white group-hover:text-brand-gold transition-colors">
+              Reparações Gerais
+            </h3>
+            <p class="mt-4 text-sm text-gray-400 leading-relaxed font-light">
+              Intervenções técnicas de manutenção, carpintaria fina, eletricidade, canalização, pinturas decorativas e isolamentos para preservar a longevidade do seu imóvel.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5">
+            <span class="text-xs font-semibold text-brand-gold flex items-center gap-2 group-hover:gap-3 transition-all">
+              Saber mais <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PORQUÊ ESCOLHER-NOS ==================== -->
+  <section class="py-20 bg-brand-charcoal/60 border-y border-brand-gold/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center sm:text-left">
+        
+        <div class="p-6 rounded-lg bg-brand-dark/40 border border-white/5">
+          <i class="fa-regular fa-clock text-3xl text-brand-gold mb-4"></i>
+          <h4 class="text-lg font-display font-semibold text-white">Cumprimento de Prazos</h4>
+          <p class="mt-2 text-sm text-gray-400 font-light">Planeamento metódico com cronograma de execução rigoroso para que saiba exatamente quando usufruir da sua nova casa.</p>
+        </div>
+
+        <div class="p-6 rounded-lg bg-brand-dark/40 border border-white/5">
+          <i class="fa-solid fa-medal text-3xl text-brand-gold mb-4"></i>
+          <h4 class="text-lg font-display font-semibold text-white">Materiais e Acabamentos</h4>
+          <p class="mt-2 text-sm text-gray-400 font-light">Selecionamos fornecedores conceituados e matérias-primas nobres para assegurar estética duradoura e resistência máxima.</p>
+        </div>
+
+        <div class="p-6 rounded-lg bg-brand-dark/40 border border-white/5">
+          <i class="fa-solid fa-handshake-angle text-3xl text-brand-gold mb-4"></i>
+          <h4 class="text-lg font-display font-semibold text-white">Transparência Total</h4>
+          <p class="mt-2 text-sm text-gray-400 font-light">Orçamentos detalhados sem surpresas de custos ocultos e relatórios fotográficos de evolução a cada etapa da obra.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PORTFÓLIO DE PROJETOS ==================== -->
+  <section id="projetos" class="py-24 bg-[#0f1013]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-brand-gold font-bold">Galeria de Inspiração</span>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-display font-bold text-white">Projetos Recentes</h2>
+        </div>
+        
+        <!-- Botões de Filtro -->
+        <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="filter-buttons">
+          <button data-filter="all" class="filter-btn active px-4 py-1.5 text-xs font-semibold rounded-full bg-brand-gold text-black transition-colors">Todos</button>
+          <button data-filter="arquitetura" class="filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-brand-card hover:bg-brand-gold/20 text-gray-300 hover:text-brand-gold transition-colors">Arquitetura</button>
+          <button data-filter="remodelacao" class="filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-brand-card hover:bg-brand-gold/20 text-gray-300 hover:text-brand-gold transition-colors">Remodelações</button>
+          <button data-filter="interiores" class="filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-brand-card hover:bg-brand-gold/20 text-gray-300 hover:text-brand-gold transition-colors">Interiores</button>
+        </div>
+      </div>
+
+      <!-- Grelha de Projetos -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+        
+        <!-- Projeto 1 -->
+        <div class="portfolio-item group relative overflow-hidden rounded-xl border border-white/10" data-category="arquitetura">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Moradia Moderna" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-brand-gold text-xs font-semibold uppercase tracking-wider">Arquitetura</span>
+            <h4 class="text-white font-display text-lg font-bold">Moradia Contemporânea</h4>
+            <p class="text-gray-300 text-xs mt-1">Conceção arquitetónica integral e integração paisagística.</p>
+          </div>
+        </div>
+
+        <!-- Projeto 2 -->
+        <div class="portfolio-item group relative overflow-hidden rounded-xl border border-white/10" data-category="remodelacao">
+          <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Cozinha de Luxo" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-brand-gold text-xs font-semibold uppercase tracking-wider">Remodelação</span>
+            <h4 class="text-white font-display text-lg font-bold">Cozinha em Espaço Aberto</h4>
+            <p class="text-gray-300 text-xs mt-1">Acabamentos lacados, bancada em mármore e iluminação oculta.</p>
+          </div>
+        </div>
+
+        <!-- Projeto 3 -->
+        <div class="portfolio-item group relative overflow-hidden rounded-xl border border-white/10" data-category="interiores">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Sala Minimalista" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-brand-gold text-xs font-semibold uppercase tracking-wider">Design de Interiores</span>
+            <h4 class="text-white font-display text-lg font-bold">Living Room Sofisticado</h4>
+            <p class="text-gray-300 text-xs mt-1">Paleta neutra com texturas ricas e mobiliário sob medida.</p>
+          </div>
+        </div>
+
+        <!-- Projeto 4 -->
+        <div class="portfolio-item group relative overflow-hidden rounded-xl border border-white/10" data-category="remodelacao">
+          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Casa de Banho Moderna" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-brand-gold text-xs font-semibold uppercase tracking-wider">Remodelação</span>
+            <h4 class="text-white font-display text-lg font-bold">Suite & Banho Tipo Spa</h4>
+            <p class="text-gray-300 text-xs mt-1">Revestimentos nobres, torneiras embutidas e duche italiano.</p>
+          </div>
+        </div>
+
+        <!-- Projeto 5 -->
+        <div class="portfolio-item group relative overflow-hidden rounded-xl border border-white/10" data-category="arquitetura">
+          <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Fachada Contemporânea" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-brand-gold text-xs font-semibold uppercase tracking-wider">Construção & Arquitetura</span>
+            <h4 class="text-white font-display text-lg font-bold">Fachada & Área Exterior</h4>
+            <p class="text-gray-300 text-xs mt-1">Sistema ETICS, iluminação cenográfica e deck em madeira.</p>
+          </div>
+        </div>
+
+        <!-- Projeto 6 -->
+        <div class="portfolio-item group relative overflow-hidden rounded-xl border border-white/10" data-category="interiores">
+          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Escritório Privado" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-brand-gold text-xs font-semibold uppercase tracking-wider">Design de Interiores</span>
+            <h4 class="text-white font-display text-lg font-bold">Espaço Executivo</h4>
+            <p class="text-gray-300 text-xs mt-1">Carpintaria sob medida e otimização ergonómica de ambiente.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FORMULÁRIO DE ORÇAMENTO ==================== -->
+  <section id="orcamento" class="py-24 bg-brand-charcoal relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-brand-card border border-brand-gold/30 rounded-2xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+        
+        <div class="text-center mb-10">
+          <span class="text-xs uppercase tracking-widest text-brand-gold font-bold">Sem Compromisso</span>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-display font-bold text-white">Solicite o seu Orçamento</h2>
+          <p class="mt-3 text-sm text-gray-400">Conte-nos sobre o seu projeto. Respondemos com proposta inicial e aconselhamento técnico.</p>
+        </div>
+
+        <form id="quote-form" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-xs uppercase tracking-wider font-semibold text-gray-300 mb-2">Nome Completo *</label>
+              <input type="text" id="name" required placeholder="Ex: Ana Silva" class="w-full bg-[#16181d] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold transition-colors">
+            </div>
+
+            <div>
+              <label for="phone" class="block text-xs uppercase tracking-wider font-semibold text-gray-300 mb-2">Telefone / Telemóvel *</label>
+              <input type="tel" id="phone" required placeholder="Ex: 928 231 360" class="w-full bg-[#16181d] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold transition-colors">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="email" class="block text-xs uppercase tracking-wider font-semibold text-gray-300 mb-2">Endereço de Email *</label>
+              <input type="email" id="email" required placeholder="Ex: seuemail@dominio.pt" class="w-full bg-[#16181d] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold transition-colors">
+            </div>
+
+            <div>
+              <label for="service-type" class="block text-xs uppercase tracking-wider font-semibold text-gray-300 mb-2">Tipo de Serviço *</label>
+              <select id="service-type" required class="w-full bg-[#16181d] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition-colors">
+                <option value="" disabled selected>Selecione uma opção</option>
+                <option value="Arquitetura e Projeto 3D">Arquitetura & Projeto 3D</option>
+                <option value="Remodelação Completa">Remodelação Completa</option>
+                <option value="Remodelação de Cozinha / WC">Remodelação de Cozinha / WC</option>
+                <option value="Construção e Gestão de Obra">Construção & Gestão de Obra</option>
+                <option value="Reparações e Manutenção">Reparações Gerais & Manutenção</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="message" class="block text-xs uppercase tracking-wider font-semibold text-gray-300 mb-2">Detalhes do Projeto *</label>
+            <textarea id="message" rows="4" required placeholder="Indique a localização, área aproximada e as suas preferências para o projeto..." class="w-full bg-[#16181d] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold transition-colors"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 bg-gradient-to-r from-brand-gold via-brand-goldLight to-brand-goldDark text-black text-sm uppercase tracking-widest font-bold rounded-lg hover:brightness-110 shadow-lg shadow-brand-gold/20 transition-all duration-300">
+            Enviar Pedido de Orçamento
+          </button>
+        </form>
+
+        <!-- Mensagem de Sucesso (Inicialmente Oculta) -->
+        <div id="form-success" class="hidden mt-6 p-4 rounded-lg bg-emerald-900/40 border border-emerald-500/50 text-emerald-300 text-center text-sm">
+          <i class="fa-solid fa-circle-check text-lg mr-2"></i>
+          O seu pedido foi enviado com sucesso! A equipa da <strong>Luyalo concept</strong> entrará em contacto muito brevemente.
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECÇÃO DE CONTACTOS ==================== -->
+  <section id="contacto" class="py-20 bg-[#0d0e11] border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Contacto Telefónico & WhatsApp -->
+        <div class="p-6 rounded-xl bg-brand-card/50 border border-white/5 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl flex-shrink-0">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium text-base">Contacto Telefónico</h4>
+            <p class="text-brand-gold font-semibold mt-1">
+              <a href="tel:+351928231360" class="hover:underline">928 231 360</a>
+            </p>
+            <p class="text-xs text-gray-400 mt-1">Disponível também via WhatsApp para apoio direto.</p>
+          </div>
+        </div>
+
+        <!-- Horário de Atendimento -->
+        <div class="p-6 rounded-xl bg-brand-card/50 border border-white/5 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl flex-shrink-0">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+          <div class="text-sm">
+            <h4 class="text-white font-medium text-base mb-1">Horário de Funcionamento</h4>
+            <p class="text-gray-300 text-xs"><strong>Segunda a Sexta:</strong> 08:00 – 19:00</p>
+            <p class="text-gray-300 text-xs mt-0.5"><strong>Sábado:</strong> 09:00 – 15:00</p>
+            <p class="text-gray-300 text-xs mt-0.5"><strong>Domingo:</strong> 12:00 – 17:00</p>
+          </div>
+        </div>
+
+        <!-- Área de Atuação -->
+        <div class="p-6 rounded-xl bg-brand-card/50 border border-white/5 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl flex-shrink-0">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium text-base">Área de Atuação</h4>
+            <p class="text-gray-300 text-sm mt-1">Portugal Inteiro</p>
+            <p class="text-xs text-gray-400 mt-1">Deslocamo-nos para avaliação presencial do seu projeto e orçamentação técnica.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer class="bg-[#090a0c] border-t border-brand-gold/20 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded border border-brand-gold/60 flex items-center justify-center bg-brand-charcoal text-brand-gold font-display font-bold text-sm">
+            L
+          </div>
+          <span class="font-display tracking-[0.25em] text-sm font-bold text-white">LUYALO <span class="text-brand-gold">CONCEPT</span></span>
+        </div>
+
+        <!-- Links Rápidos -->
+        <div class="flex flex-wrap gap-6 text-xs text-gray-400">
+          <a href="#inicio" class="hover:text-brand-gold transition-colors">Início</a>
+          <a href="#sobre" class="hover:text-brand-gold transition-colors">Sobre</a>
+          <a href="#servicos" class="hover:text-brand-gold transition-colors">Serviços</a>
+          <a href="#projetos" class="hover:text-brand-gold transition-colors">Portfólio</a>
+          <a href="#orcamento" class="hover:text-brand-gold transition-colors">Pedir Orçamento</a>
+        </div>
+
+        <!-- Redes Sociais & Direitos -->
+        <div class="flex items-center gap-4 text-gray-400 text-base">
+          <a href="#" class="hover:text-brand-gold transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="hover:text-brand-gold transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://wa.me/351928231360" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-white/5 text-center text-xs text-gray-500">
+        &copy; <span id="current-year"></span> Luyalo concept — Arquitetura, Construção & Remodelações. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // Atualizar ano atual no rodapé
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Menu Mobile Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Filtros de Portfólio
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-brand-gold', 'text-black');
+          btn.classList.add('bg-brand-card', 'text-gray-300');
+        });
+
+        button.classList.add('bg-brand-gold', 'text-black');
+        button.classList.remove('bg-brand-card', 'text-gray-300');
+
+        const filterValue = button.getAttribute('data-filter');
+
+        portfolioItems.forEach(item => {
+          if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Interação do Formulário de Orçamento (com envio via WhatsApp / Notificação)
+    const quoteForm = document.getElementById('quote-form');
+    const successMsg = document.getElementById('form-success');
+
+    quoteForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const service = document.getElementById('service-type').value;
+      const message = document.getElementById('message').value;
+
+      // Exibe mensagem de confirmação
+      successMsg.classList.remove('hidden');
+      quoteForm.reset();
+
+      // Opcional: Redirecionar / Preparar mensagem WhatsApp automaticamente
+      const whatsappText = `Olá Luyalo Concept! O meu nome é ${encodeURIComponent(name)} (${encodeURIComponent(phone)}). Gostaria de um orçamento para ${encodeURIComponent(service)}: ${encodeURIComponent(message)}`;
+      
+      setTimeout(() => {
+        const askWhatsApp = confirm("Pedido registado! Deseja enviar também estes detalhes diretamente para o WhatsApp da Luyalo Concept (928 231 360)?");
+        if (askWhatsApp) {
+          window.open(`https://wa.me/351928231360?text=${whatsappText}`, '_blank');
+        }
+      }, 500);
+    });
+  </script>
+</body>
+</html>
